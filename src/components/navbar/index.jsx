@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 import { GlobalContext } from "../../context";
 
 function Navbar() {
-  const { search, setSearch } = useContext(GlobalContext);
+  const { search, setSearch, onSearch } = useContext(GlobalContext);
   return (
     <div className="flex justify-between items-center py-8 container mx-auto flex-col lg:flex-row gap-5 lg:gap-0">
       <h2 className="text-2xl font-semibold">
         <NavLink to={"/"}>YourRecipeBook</NavLink>
       </h2>
-      <form action="">
+      <form onSubmit={onSearch}>
         <input
           type="text"
           name="search"
